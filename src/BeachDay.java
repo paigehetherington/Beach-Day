@@ -12,18 +12,18 @@ import java.util.Scanner;
  * Created by vajrayogini on 2/10/16.
  */
 public class BeachDay {
-    public static Answers answers = new Answers();
+    public static Answers answers = new Answers(); //created new answers object, don't know why oustide main method
 
     public static void main(String[] args) throws IOException {
 
-        answers = loadBeachDay();
-        //System.out.printf("%s %s %s %d %d\n", answers.weather, answers.bikiniColor, answers.surfboardType, answers.wavesCaught, answers.waterTemp);
-        if (answers == null) {
+        answers = loadBeachDay();  //calling load method , reads file and displays contents
+        System.out.printf("%s %s %s %d %d\n", answers.weather, answers.bikiniColor, answers.surfboardType, answers.wavesCaught, answers.waterTemp);
+        if (answers == null) { //if no info asks list of questions
             answers.askQuestions();
-        } else {
+        } else { //otherwise asks to update
             System.out.println("Would you like to update any answers?");
-            Scanner s = new Scanner(System.in);
-            String answerUpd = s.nextLine();
+            Scanner s = new Scanner(System.in); //recieves input (answer)
+            String answerUpd = s.nextLine(); //creates string for answer I have no idea why
             if (answerUpd.equalsIgnoreCase("yes")) {
                 answers.askQuestions();
             } else {
@@ -31,13 +31,13 @@ public class BeachDay {
             }
         }
 
-        saveBeachDay();
+        saveBeachDay(); //calling save method, saves new or updated answers to questions
 
     }
 
 
 
-    public static void saveBeachDay() throws IOException { //create save method
+    public static void saveBeachDay() throws IOException { // details of save method
         JsonSerializer s = new JsonSerializer(); //new object
         String json = s.serialize(answers); //serialize into string -- (include("*") includes array list)
         File f = new File("beachDay.json");
@@ -45,12 +45,12 @@ public class BeachDay {
            FileWriter fw = new FileWriter(f);
            fw.write(json);
            fw.close(); //save file
-       } catch (Exception e){
+       } catch (Exception e){ //in case there is a problem and doesn't save, won't crash program
            System.out.println("Something went wrong");
        }
     }
 
-    public static Answers loadBeachDay() throws FileNotFoundException {
+    public static Answers loadBeachDay() throws FileNotFoundException { // details of load method
         try {
             File f = new File("beachDay.json");
             Scanner s = new Scanner(f);

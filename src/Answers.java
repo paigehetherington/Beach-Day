@@ -4,17 +4,17 @@ import java.util.Scanner;
  * Created by vajrayogini on 2/10/16.
  */
 public class Answers {
-    String weather;
+    String weather; //created variables in Answers class
     String bikiniColor;
     String surfboardType;
     int wavesCaught;
     int waterTemp;
 
 
-    public void askQuestions(){
-        Scanner scanner = new Scanner(System.in);
+    public void askQuestions(){ // the details of askQuestions method
+        Scanner scanner = new Scanner(System.in); //initialized scanner to receive input
         System.out.println("How was the weather?");
-        weather = scanner.nextLine();
+        weather = scanner.nextLine(); //takes answer and makes it weather
         System.out.printf("What color was your bikini?");
         bikiniColor = scanner.nextLine();
         System.out.println("What type of surfboard did you use?");
@@ -25,7 +25,7 @@ public class Answers {
         waterTemp = Integer.valueOf(scanner.nextLine());
     }
 
-    public String getWeather() {
+    public String getWeather() { //created getters so can save code in json
         return weather;
     }
 
