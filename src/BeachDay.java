@@ -12,17 +12,17 @@ import java.util.Scanner;
  * Created by vajrayogini on 2/10/16.
  */
 public class BeachDay {
-    public static Answers answers = new Answers(); //created new answers object, don't know why oustide main method
+    public static Answers answers = new Answers(); //created new answers object, don't know why outside main method
 
     public static void main(String[] args) throws IOException {
 
         answers = loadBeachDay();  //calling load method , reads file and displays contents
-        System.out.printf("%s %s %s %d %d\n", answers.weather, answers.bikiniColor, answers.surfboardType, answers.wavesCaught, answers.waterTemp);
         if (answers == null) { //if no info asks list of questions
             answers.askQuestions();
         } else { //otherwise asks to update
+            System.out.printf("%s %s %s %d %d\n", answers.weather, answers.bikiniColor, answers.surfboardType, answers.wavesCaught, answers.waterTemp);
             System.out.println("Would you like to update any answers?");
-            Scanner s = new Scanner(System.in); //recieves input (answer)
+            Scanner s = new Scanner(System.in); //receives input (answer)
             String answerUpd = s.nextLine(); //creates string for answer I have no idea why
             if (answerUpd.equalsIgnoreCase("yes")) {
                 answers.askQuestions();
@@ -37,7 +37,7 @@ public class BeachDay {
 
 
 
-    public static void saveBeachDay() throws IOException { // details of save method
+    public static void saveBeachDay() throws IOException { // details of save method. void doesn't return anything
         JsonSerializer s = new JsonSerializer(); //new object
         String json = s.serialize(answers); //serialize into string -- (include("*") includes array list)
         File f = new File("beachDay.json");
@@ -50,7 +50,7 @@ public class BeachDay {
        }
     }
 
-    public static Answers loadBeachDay() throws FileNotFoundException { // details of load method
+    public static Answers loadBeachDay() throws FileNotFoundException { // details of load method. why answers?
         try {
             File f = new File("beachDay.json");
             Scanner s = new Scanner(f);
