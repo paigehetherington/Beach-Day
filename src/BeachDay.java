@@ -23,7 +23,7 @@ public class BeachDay {
             System.out.printf("%s %s %s %d %d\n", answers.weather, answers.bikiniColor, answers.surfboardType, answers.wavesCaught, answers.waterTemp);
             System.out.println("Would you like to update any answers?");
             Scanner s = new Scanner(System.in); //receives input (answer)
-            String answerUpd = s.nextLine(); //creates string for answer I have no idea why
+            String answerUpd = s.nextLine(); //creates string for answer
             if (answerUpd.equalsIgnoreCase("yes")) {
                 answers.askQuestions();
             } else {
