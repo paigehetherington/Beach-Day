@@ -50,7 +50,7 @@ public class BeachDay {
        }
     }
 
-    public static Answers loadBeachDay() throws FileNotFoundException { // details of load method. why answers?
+    public static Answers loadBeachDay() throws FileNotFoundException { // details of load method.
         try {
             File f = new File("beachDay.json");
             Scanner s = new Scanner(f);
