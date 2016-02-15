@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Created by vajrayogini on 2/10/16.
  */
 public class BeachDay {
-    public static Answers answers = new Answers(); //created new answers object, don't know why outside main method
+    public static Answers answers = new Answers(); //created new answers object
 
     public static void main(String[] args) throws IOException {
 
